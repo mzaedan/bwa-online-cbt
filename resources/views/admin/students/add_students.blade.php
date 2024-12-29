@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/output.css') }}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 </head>
@@ -196,7 +197,19 @@
                     </div>
                 </div>
             </div>
-            <form id="add-question" class="mx-[70px] mt-[30px] flex flex-col gap-5">
+
+            @if($errors->any())
+                <ul>
+                    @forEach($errors->all() as $error)
+                        <li class="py-5 px-5 bg-red-700 text-white">
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
+
+            <form method="POST" action="{{ route('dashboard.course.course_students.store', $course) }}" id="add-question" class="mx-[70px] mt-[30px] flex flex-col gap-5">
                 @csrf
                 <h2 class="font-bold text-2xl">Add New Student</h2>
                 <div class="flex flex-col gap-[10px]">
@@ -211,9 +224,9 @@
                             placeholder="Write student email address" name="email">
                     </div>
                 </div>
-                <a href="#"
+                <button type="submit" href="#"
                     class="w-[500px] h-[52px] p-[14px_20px] bg-[#6436F1] rounded-full font-bold text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center">Add
-                    Student</a>
+                    Student</button>
             </form>
         </div>
     </section>

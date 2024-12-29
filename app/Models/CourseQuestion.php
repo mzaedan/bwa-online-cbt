@@ -18,7 +18,7 @@ class CourseQuestion extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function answer(){
+    public function answers(){
         return $this->hasMany(CourseAnswer::class, 'course_question_id', 'id');
     }    
 
