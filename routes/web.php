@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseQuestionController;
 use App\Http\Controllers\CourseStudentController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentAnswerController;
 use App\Models\Course;
 use App\Models\StudentAnswer;
 use Illuminate\Support\Facades\Route;
@@ -67,7 +68,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('role:student')
         ->name('learning.course');
 
-        Route::post('/learning/{course}/{question}', [StudentAnswer::class, 'store'])
+        Route::post('/learning/{course}/{question}', [StudentAnswerController::class, 'store'])
         ->middleware('role:student')
         ->name('learning.course.answer.store');
     });

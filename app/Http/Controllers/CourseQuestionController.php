@@ -52,7 +52,7 @@ class CourseQuestionController extends Controller
 
             foreach($request->answers as $index => $answerText){
                 $isCorrect = ($request->correct_answer == $index);
-                $question->answer()->create([
+                $question->answers()->create([
                     'answer' => $answerText,
                     'is_correct' => $isCorrect
                 ]);

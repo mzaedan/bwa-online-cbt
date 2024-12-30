@@ -37,7 +37,7 @@
             </h1>
             <div class="flex flex-col gap-[30px] max-w-[750px] w-full">
                 @foreach($question->answers as $answer)
-                <label for="a" class="group flex items-center justify-between rounded-full w-full border border-[#EEEEEE] p-[18px_20px] gap-[14px] transition-all duration-300 has-[:checked]:border-2 has-[:checked]:border-[#0A090B]">
+                <label for="{{ $answer->id }}" class="group flex items-center justify-between rounded-full w-full border border-[#EEEEEE] p-[18px_20px] gap-[14px] transition-all duration-300 has-[:checked]:border-2 has-[:checked]:border-[#0A090B]">
                     <div class="flex items-center gap-[14px]">
                         <img src="{{asset('images/icons/arrow-circle-right.svg')}}" alt="icon">
                         <span class="font-semibold text-xl leading-[30px]">{{ $answer->answer }}</span>
@@ -49,7 +49,7 @@
                 </label>
                 @endforeach
             </div>
-            <button href="learning-finished.html" class="w-fit p-[14px_40px] bg-[#6436F1] rounded-full font-bold text-sm text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center align-middle">Save & Next Question</button>
+            <button type="submit" class="w-fit p-[14px_40px] bg-[#6436F1] rounded-full font-bold text-sm text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center align-middle">Save & Next Question</button>
         </form>
     </section>
 
