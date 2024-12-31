@@ -87,7 +87,7 @@ class StudentAnswerController extends Controller
                 $nextQuestion->id]);
             }
             else{
-                return redirect()->route('dashboard.learning.finish.course', $course->id);
+                return redirect()->route('dashboard.learning.finished.course', $course->id);
             }
         }
         catch(\Exception $e){
